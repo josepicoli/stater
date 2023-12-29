@@ -1,5 +1,10 @@
+#!/usr/bin/env python3
 import requests
 import sys
+
+if len(sys.argv) > 2:
+    print("many arguments")
+    sys.exit()
 
 def get_usd():
     r = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL")
@@ -16,6 +21,23 @@ def get_btc():
     btc = r.json()['BTCBRL']['bid']
     print(f"BTC = {btc}")
 
-get_usd()
-get_eur()
-get_btc()
+def main():
+    sys.argv.pop(0)
+
+    match sys.argv:
+        case []:
+            get_usd()
+            get_eur()
+            get_btc()
+        case ['--all']:
+            get_usd()
+            get_eur()
+            get_btc()
+        case ['--usd']:
+            get_usd()
+        case ['--eur']:
+            get_eur()
+        case ['--btc']:
+            get_btc()
+
+main()
