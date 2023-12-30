@@ -39,5 +39,7 @@ def main():
             get_eur()
         case ['--btc']:
             get_btc()
+        case _:
+            print("invalid command")
 
 main()
