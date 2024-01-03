@@ -6,40 +6,61 @@ if len(sys.argv) > 2:
     print("many arguments")
     sys.exit()
 
-def get_usd():
-    r = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL")
-    usd = r.json()['USDBRL']['bid']
-    print(f"USD = {usd}")
+def get_usd(): #Dólar Americano
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL")
+        usd = r.json()['USDBRL']['bid']
+        print(f"USD = {usd}")
+    except:
+        print("error")
 
-def get_eur():
-    r = requests.get("https://economia.awesomeapi.com.br/last/EUR-BRL")
-    eur = r.json()['EURBRL']['bid']
-    print(f"EUR = {eur}")
+def get_eur(): #Euro
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/EUR-BRL")
+        eur = r.json()['EURBRL']['bid']
+        print(f"EUR = {eur}")
+    except:
+        print("error")
 
-def get_btc():
-    r = requests.get("https://economia.awesomeapi.com.br/last/BTC-BRL")
-    btc = r.json()['BTCBRL']['bid']
-    print(f"BTC = {btc}")
+def get_btc(): #Bitcoin
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/BTC-BRL")
+        btc = r.json()['BTCBRL']['bid']
+        print(f"BTC = {btc}")
+    except:
+        print("error")
 
-def get_ars():
-    r = requests.get("https://economia.awesomeapi.com.br/last/ARS-BRL")
-    ars = r.json()['ARSBRL']['bid'] #peso argentino
-    print(f"ARS = {ars}")
+def get_ars(): #Peso Argentino
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/ARS-BRL")
+        ars = r.json()['ARSBRL']['bid'] #peso argentino
+        print(f"ARS = {ars}")
+    except:
+        print("error")
 
-def get_jpy():
-    r = requests.get("https://economia.awesomeapi.com.br/last/JPY-BRL")
-    jpy = r.json()['JPYBRL']['bid']
-    print(f"JPY = {jpy}")
+def get_jpy(): #Iene Japonês
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/JPY-BRL")
+        jpy = r.json()['JPYBRL']['bid']
+        print(f"JPY = {jpy}")
+    except:
+        print("error")
 
-def get_eth():
-    r = requests.get("https://economia.awesomeapi.com.br/last/ETH-BRL")
-    eth = r.json()['ETHBRL']['bid']
-    print(f"ETH = {eth}")
+def get_eth(): #Ethereum
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/ETH-BRL")
+        eth = r.json()['ETHBRL']['bid']
+        print(f"ETH = {eth}")
+    except:
+        print("error")
 
-def get_cny():
-    r = requests.get("https://economia.awesomeapi.com.br/last/CNY-BRL")
-    cny = r.json()['CNYBRL']['bid']
-    print(f"CNY = {cny}")
+def get_cny(): #Yuan Chinês
+    try:
+        r = requests.get("https://economia.awesomeapi.com.br/last/CNY-BRL")
+        cny = r.json()['CNYBRL']['bid']
+        print(f"CNY = {cny}")
+    except:
+        print("error")
 
 def get_all():
     get_usd()
