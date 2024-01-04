@@ -7,11 +7,14 @@ if len(sys.argv) > 2:
     sys.exit()
 
 def get_value(coin: str):
-    coin = coin.upper()
-    url = f"https://economia.awesomeapi.com.br/last/{coin}-BRL"
-    r = requests.get(url)
-    value = r.json()[f'{coin}BRL']['bid']
-    print(f"{coin} = {value}")
+    try:
+        coin = coin.upper()
+        url = f"https://economia.awesomeapi.com.br/last/{coin}-BRL"
+        r = requests.get(url)
+        value = r.json()[f'{coin}BRL']['bid']
+        print(f"{coin} = {value}")
+    except:
+        print("error")
 
 # usd -> Dólar Americano
 # eur -> Euro
