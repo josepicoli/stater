@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import requests
 import sys
+from rainbowio import *
 
 if len(sys.argv) > 2:
-    print("many arguments")
+    print_rgb("red", "many arguments")
     sys.exit()
 
 def get_value(coin: str):
@@ -12,17 +13,9 @@ def get_value(coin: str):
         url = f"https://economia.awesomeapi.com.br/last/{coin}-BRL"
         r = requests.get(url)
         value = r.json()[f'{coin}BRL']['bid']
-        print(f"{coin} = {value}")
+        print_rgb("green", f"{coin} = {value}")
     except:
-        print("error")
-
-# usd -> Dólar Americano
-# eur -> Euro
-# btc -> Bitcoin
-# ars -> Peso Argentino
-# jpy -> Iene Japonês
-# eth -> Ethereum
-# cny -> Yuan Chinês
+        print_rgb("red", "error")
 
 def get_all():
     get_value("usd")
