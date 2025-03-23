@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 import requests
 import sys
-from rainbowio import *
+import rainbowio as io
 
-if len(sys.argv) > 2:
-    print_rgb("red", "many arguments")
-    sys.exit()
-
-def get_value(coin: str, color: str):
+def get_value(coin: str, color: str) -> None:
     try:
         coin = coin.upper()
         url = f"https://economia.awesomeapi.com.br/last/{coin}-BRL"
         r = requests.get(url)
         value = r.json()[f'{coin}BRL']['bid']
-        print_rgb(color, f"{coin} = {value}")
+        io.print_rgb(color, f"{coin} = {value}")
     except:
-        print_rgb("red", "error")
+        io.print_rgb("red", "error")
 
 def get_all():
     get_value("usd", "green")
@@ -49,6 +45,11 @@ def main():
         case ['--cny']:
             get_value("cny", "red")
         case _:
-            print("invalid command")
+            io.print_rgb("red","invalid command")
+
+
+if len(sys.argv) > 2:
+    io.print_rgb("red", "many arguments")
+    sys.exit()
 
 main()
